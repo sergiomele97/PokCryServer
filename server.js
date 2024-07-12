@@ -2,6 +2,8 @@
 const express = require('express')
 // Genera una instancia de express
 const app = express()
+// Importa cors
+const cors = require('cors');
 //Importa http y llama al método server pasando la app express como argumento. Crea un servidor http que usa la app.
 const http = require('http').Server(app) 
 // Importa modulo socket.io y crea una instancia (llama al constructor) pasando el servidor http como argumento.
@@ -11,6 +13,8 @@ const io = require('socket.io')(http)
 // Puerto definido como variable de entorno o 8000 si no esta definido
 const port = process.env.PORT || 8000
 
+// Configura CORS para permitir todos los orígenes
+app.use(cors());
 
 // Devuelve el archivo index.html en el directorio raiz cuando se hace request a la raiz del dominio
 app.get('/', function (req, res) {
