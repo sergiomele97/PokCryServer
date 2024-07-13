@@ -4,7 +4,8 @@ const wss = new WebSocket.Server({ port: 8000 });
 
 wss.on('connection', ws => {
     ws.on('message', message => {
-        console.log('Mensaje recibido del cliente Python:', message);
+        const textMessage = message.toString(); // Convertir el buffer a cadena de texto
+        console.log('Mensaje recibido del cliente Python:', textMessage);
         ws.send('Mensaje recibido exitosamente');
     });
 
