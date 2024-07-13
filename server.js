@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 8000 });
 
 wss.on('connection', ws => {
     ws.on('message', message => {
@@ -11,4 +11,4 @@ wss.on('connection', ws => {
     ws.send('Conexión establecida con el servidor WebSocket');
 });
 
-console.log('Servidor WebSocket escuchando en ws://localhost:8080');
+console.log('Servidor WebSocket escuchando en ws://localhost:8000');
