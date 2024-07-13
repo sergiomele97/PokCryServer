@@ -1,5 +1,6 @@
+// Importa WebSockets
 const WebSocket = require('ws');
-
+// Llama al método server y le pasa el puerto
 const wss = new WebSocket.Server({ port: 8000 });
 
 wss.on('connection', ws => {
